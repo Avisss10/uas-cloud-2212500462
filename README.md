@@ -61,5 +61,3 @@ Buka browser dan akses:
   - Password: `root`
   - Database: `2212500462`
 - Data MySQL akan tersimpan di volume Docker `mysql-data`.
-
-## Lisensi
