@@ -49,7 +49,7 @@ docker run -p 8080:80 --name contact-app --link mysql-db-container:db php-contac
 > **Catatan:**  
 > Pastikan Anda sudah memiliki container MySQL yang berjalan dengan:
 > - user: `root`
-> - password: (kosong)
+> - password: `root`
 > - database: `2212500462`
 > - service name: `db` (agar sesuai dengan konfigurasi di [`app/dbconn.php`](app/dbconn.php))
 
@@ -63,7 +63,3 @@ Buka browser dan akses:
 - [`app/index.php`](app/index.php): Halaman utama aplikasi.
 - [`app/dbconn.php`](app/dbconn.php): Koneksi ke database.
 - [`db/2212500462.sql`](db/2212500462.sql): Skrip SQL untuk membuat database dan tabel.
-
-## Lisensi
-
-Proyek ini untuk keperluan pembelajaran.
