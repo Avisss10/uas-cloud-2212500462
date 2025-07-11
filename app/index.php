@@ -6,7 +6,7 @@ if (isset($_POST['contact'])) {
     $conn->query("INSERT INTO tasks (contact) VALUES ('$contact')");
 }
 
-$contact = $conn->query("SELECT * FROM contact");
+$contact = $conn->query("SELECT * FROM tasks");
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ $contact = $conn->query("SELECT * FROM contact");
 </form>
 <ul>
     <?php while ($row = $contact->fetch_assoc()) { ?>
-        <li><?php echo htmlspecialchars($row['$contact']); ?></li>
+        <li><?php echo htmlspecialchars($row['contact']); ?></li>
     <?php } ?>
 </ul>
 </body>

@@ -1,14 +1,24 @@
 <?php
-$servername = "db"; //or you could use hostname (service name if using docker-compose)
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "2212500462";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$maxRetries = 10;
+$retry = 0;
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+do {
+    $conn = @new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_errno) {
+        echo "⏳ Retry $retry: waiting for MySQL...<br>";
+        $retry++;
+        sleep(2);
+    } else {
+        break;
+    }
+} while ($retry < $maxRetries);
+
+if ($conn->connect_errno) {
+    die("❌ Connection failed: " . $conn->connect_error);
 }
-
-
+?>
